@@ -15,6 +15,9 @@ class MyArray {
         return this.length;
 
     }
+    get(index){
+        return this.data[index];
+    }
 }
 
 const myNewArray = new MyArray();
@@ -22,4 +25,4 @@ const myNewArray = new MyArray();
 myNewArray.push('apple');
 myNewArray.push('banana');
 myNewArray.push('mango');
-console.log(myNewArray.data);
+console.log(myNewArray.get(0));
