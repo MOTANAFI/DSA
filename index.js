@@ -33,8 +33,28 @@
 
 // O(1), or constant time complexity, means that the time taken to execute an operation is the same regardless of the size of the input.
 
-const numbers = [1,2,3,4,5];
+// const numbers = [1,2,3,4,5];
 
-const getElement = (arr, index) => arr[index];
+// const getElement = (arr, index) => arr[index];
 
-console.log(getElement(numbers, 3)); // O(1) - Constant Time Complexity`
+// console.log(getElement(numbers, 3)); // O(1) - Constant Time Complexity`
+
+// O(n^2) - Quadratic Time Complexity
+// indicates that algorithm's execution grows quadratically with the input size data (represented by n)
+
+function findPairs(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      console.log(`pair: ${arr[i]}, ${arr[j]}`);
+    }
+  }
+
+  //O(n)
+  for (let q = 0; q < 5; q++) {
+    console.log("----------", q);
+  }
+}
+
+const numbers = [1, 2, 3, 4, 5];
+
+findPairs(numbers); // O(n^2) - Quadratic Time Complexity
