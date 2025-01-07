@@ -1,3 +1,2 @@
- delete this.data[0];
-        this.length--;
-        return firstItem;
+console.log(myNewArray.pop());
+// console.log(myNewArray.shift());

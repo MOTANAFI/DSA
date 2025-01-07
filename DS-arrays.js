@@ -38,6 +38,21 @@ class MyArray {
         this.length--;
         return firstItem
     }
+
+    delete(index) {
+        if (index < 0 || index >= this.length) {
+            console.error(`Invalid index: ${index}`);
+            return undefined;
+        }
+        const item = this.data[index];
+        for(let i = index; i < this.length - 1; i++){
+            this.data[i] = this.data[i + 1];
+        }
+        delete this.data[this.length - 1];
+        this.length--;
+        return item;
+
+    }
 }
 
 const myNewArray = new MyArray();
@@ -45,6 +60,11 @@ const myNewArray = new MyArray();
 myNewArray.push('apple');
 myNewArray.push('banana');
 myNewArray.push('mango');
-console.log(myNewArray.pop());
-console.log(myNewArray.shift());
+// console.log(myNewArray.pop());
+// console.log(myNewArray.shift());
 console.log(myNewArray);
+console.log(myNewArray.delete(9));
+console.log(myNewArray)
+
+
+
