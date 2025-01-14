@@ -20,4 +20,6 @@ class LinkedList {
   }
 }
 
+const myLinkedList = new LinkedList(1);
 
+console.log(myLinkedList)
