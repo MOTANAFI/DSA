@@ -79,6 +79,11 @@ class LinkedList {
     }
     return temp;
   }
+
+  // linked list get fist method
+  getFirst() {
+    this.head
+  } 
 }
 
 const myLinkedList = new LinkedList(1);
@@ -86,5 +91,6 @@ myLinkedList.push(10);
 // myLinkedList.pop();
 myLinkedList.unshift(0);
 myLinkedList.shift();
+myLinkedList.getFirst()
 
 console.log(myLinkedList);
