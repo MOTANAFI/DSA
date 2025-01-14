@@ -82,15 +82,26 @@ class LinkedList {
 
   // linked list get fist method
   getFirst() {
-    this.head
-  } 
+    this.head;
+  }
+
+  // get the last element in the linked list
+  getLast() {
+    let temp = thid.head;
+    while (temp) {
+      if (!temp.next) {
+        return temp;
+      }
+      temp = temp.next;
+    }
+  }
 }
 
 const myLinkedList = new LinkedList(1);
-myLinkedList.push(10);
+myLinkedList.push(40);
 // myLinkedList.pop();
-myLinkedList.unshift(0);
-myLinkedList.shift();
-myLinkedList.getFirst()
+// myLinkedList.unshift(0);
+// myLinkedList.shift();
+// myLinkedList.getFirst();
 
-console.log(myLinkedList);
+console.log(myLinkedList.getLast());
