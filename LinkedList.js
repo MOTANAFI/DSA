@@ -18,8 +18,19 @@ class LinkedList {
 
     this.length = 1
   }
+  push(value) {
+    if (!this.head) {
+      this.head = newNode
+      this.tail = newNode;
+    }
+    const newNode = new Node(value);
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+  }
 }
 
 const myLinkedList = new LinkedList(1);
+myLinkedList.push(10)
 
 console.log(myLinkedList)
