@@ -64,13 +64,27 @@ class LinkedList {
 
     return this;
   }
+  shift() {
+    if (!this.head) return undefined;
+    //1. Point the first ndoe/element
+    let temp = this.head;
+    //2. Move the head to the next node
+    this.head = this.head.next;
+    //3. remove first element
+    this.next = null;
+    this.length--;
 
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return temp;
+  }
 }
 
 const myLinkedList = new LinkedList(1);
 myLinkedList.push(10);
 // myLinkedList.pop();
 myLinkedList.unshift(0);
-myLinkedList.shift(2);
+myLinkedList.shift();
 
 console.log(myLinkedList);
