@@ -95,13 +95,30 @@ class LinkedList {
       temp = temp.next;
     }
   }
+
+  get(indext) {
+    let counter = 0;
+    let temp = this.head;
+    while (temp) {
+      if (counter === indext) {
+        return temp;
+      }
+
+      counter++;
+
+      temp = temp.next;
+    }
+    return null;
+  }
 }
 
-const myLinkedList = new LinkedList(1);
-myLinkedList.push(40);
+const myLinkedList = new LinkedList(0);
+myLinkedList.push(1);
+myLinkedList.push(2);
+myLinkedList.push(3);
 // myLinkedList.pop();
 // myLinkedList.unshift(0);
 // myLinkedList.shift();
 // myLinkedList.getFirst();
 
-console.log(myLinkedList.getLast());
+console.log(myLinkedList.get(2));
