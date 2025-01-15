@@ -55,3 +55,4 @@ function reverseOnlyLetters(S) {
 }
 
 console.log(reverseOnlyLetters("ab-cd"));
+console.log(reverseOnlyLetters("a-bC-dEf-ghIj!!"));
