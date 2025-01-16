@@ -18,7 +18,7 @@ class Stack {
 
   push(value){
    const newNode =  new Node(value);
-   if(this.lenght === 0) {
+   if(this.length === 0) {
     this.first = newNode;
    }
 
@@ -29,10 +29,21 @@ class Stack {
    return this
 
   }
+
+  pop() {
+    if(this.length === 0) return undefined;
+
+    let temp = this.first;
+    this.first = this.first.next;
+    temp.next = null;
+    this.length--
+    return temp;
+  }
 }
 
 let theStack = new Stack(0);
 theStack.push(1)
 theStack.push(2)
+theStack.pop()
 
 console.log(theStack);
