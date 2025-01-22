@@ -30,6 +30,25 @@ class Stack {
 
   }
 
+  min() {
+    if(this.length === 0) return undefined;
+    let current = this.first;
+    let minValue = current.value;
+
+    while(current) {
+      current = current.value;
+
+      if(current.value < minValue){
+        console.log(current.value, minValue)
+        minValue = current.value;
+      }
+      current = current.next;
+    }
+    return minValue
+  }
+
+
+
   pop() {
     if(this.length === 0) return undefined;
 
@@ -41,9 +60,9 @@ class Stack {
   }
 }
 
-let theStack = new Stack(0);
+let theStack = new Stack(100);
 theStack.push(1)
 theStack.push(2)
-theStack.pop()
+// theStack.pop()
 
-console.log(theStack);
+console.log(theStack.min());
