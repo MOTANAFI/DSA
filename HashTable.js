@@ -2,7 +2,7 @@
 // Data structure used to store key-value pair
 
 //HASH FUNCTION
-// Hash function acts like a translater, taking an input of any ize(key)
+// Hash function acts like a translater, taking an input of any size(key)
 // and converting it into a fixed-size value (hash code)
 // that can be used as an index within the hash table's
 //internal array. This process of mapping arbitary keys
@@ -27,7 +27,7 @@ class HashTable {
     const PRIME_NUMBER = 31;
     for (let i = 0; i < Math.min(key.length, 100); i++) {
       const charCode = key.charCodeAt(0) - 96;
-      sum = (sum * PRIME_NUMBER + charCode) % charCode;
+      sum = (sum * PRIME_NUMBER + charCode) % this.keyMap.length;
     }
     return sum;
   }
@@ -36,12 +36,25 @@ class HashTable {
     const index = this._hashFunction(key);
    
     // console.log(!this.keyMap[index]) 
-    if(!this.keyMap[index]) this.keyMap = [];
-    this.keyMap[index].push([key, value])
-    return this;
+    if(!this.keyMap[index]) this.keyMap[index] = [];
+   
+    this.keyMap[index] = [this.keyMap[index], [key, value]]; 
+    return this
 
+  }
+  get(key) {
+    const index = this._hashFunction(key);
+    if(this.keyMap[index]){
+      for(let i = 0; i < this.keyMap[index].length; i++){
+        if(this.keyMap[index][i][0] === key){
+          return this.keyMap[index][i][1]
+        }
+      }
+    }
+    return undefined
   }
 }
 
 const phoneBook = new HashTable();
-phoneBook.set("john", "555-333-444");
+console.log(phoneBook.set("john", "555-333-444"))
+console.log(phoneBook.get("john"));
