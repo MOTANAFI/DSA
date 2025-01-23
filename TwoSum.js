@@ -7,35 +7,55 @@
 //if the list is [2,7,11,15] and the target is 9,
 // the answer would be [0,1] because 2 (at index 0) plus 7 (at index 1) equals 9;
 
-const twoSum = (nums, target) => {
-  // loop throught each number in the list
+// const twoSum = (nums, target) => {
+//   // loop throught each number in the list
+//   for (let i = 0; i < nums.length; i++) {
+//     // loop through the rest of the numbers in the list
+//     for (let j = i + 1; j < nums.length; j++) {
+//       // if the sum of the current number and the next number equals the target
+//       if (nums[i] + nums[j] === target) {
+//         // return the indexes of the numbers that add up to the target
+//         return [i, j];
+//       }
+//     }
+//   }
+// };
+
+// console.log(twoSum([2, 7, 11, 15], 9)); // [0,1]
+
+// // using for of loop
+// const twoSum2 = (nums, target) => {
+//   // Loop through each number in the list with its index
+//   for (const [i, num1] of nums.entries()) {
+//     // Loop through the rest of the numbers in the list
+//     for (const [j, num2] of nums.entries()) {
+//       // Ensure we are not using the same element twice
+//       if (i !== j && num1 + num2 === target) {
+//         // Return the indexes of the numbers that add up to the target
+//         return [i, j];
+//       }
+//     }
+//   }
+// };
+
+// console.log(twoSum2([2, 7, 11, 15], 9)); // [0, 1]
+
+// Two sum with Hash table
+
+function twoSum3(nums, target) {
+  const numMap = {};
   for (let i = 0; i < nums.length; i++) {
-    // loop through the rest of the numbers in the list
-    for (let j = i + 1; j < nums.length; j++) {
-      // if the sum of the current number and the next number equals the target
-      if (nums[i] + nums[j] === target) {
-        // return the indexes of the numbers that add up to the target
-        return [i, j];
-      }
+    const compliment = target - nums[i];
+
+    if (compliment in numMap && numMap[compliment] !== i) {
+      return [numMap[compliment], i];
     }
+    numMap[nums[i]] = i
   }
-};
+  return []
+}
 
-console.log(twoSum([2, 7, 11, 15], 9)); // [0,1]
-
-// using for of loop
-const twoSum2 = (nums, target) => {
-  // Loop through each number in the list with its index
-  for (const [i, num1] of nums.entries()) {
-    // Loop through the rest of the numbers in the list
-    for (const [j, num2] of nums.entries()) {
-      // Ensure we are not using the same element twice
-      if (i !== j && num1 + num2 === target) {
-        // Return the indexes of the numbers that add up to the target
-        return [i, j];
-      }
-    }
-  }
-};
-
-console.log(twoSum2([2, 7, 11, 15], 9)); // [0, 1]
+const nums = [2, 7, 10, 20];
+const target = 30;
+const result = twoSum3(nums, target);
+console.log(result);
